@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect, request
-from app.forms import DelayForm, AssetForm
+from app.forms import DelayForm, AssetForm, DeleteForm, WaterForm
 from app import app, db
 from  wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from app.models import Location, Asset, Asset_Type, Department, Delayance
@@ -35,3 +35,21 @@ def assets():
     
     return render_template('asset.html', title='Delay', form=form)
 
+
+@app.route('/delete',  methods=['GET', 'POST'])
+def listing():
+    delete_form = DeleteForm()
+    delays =  Delayance.query.order_by(Delayance.id.desc()).limit(10).all()
+    if delete_form.validate_on_submit():
+        entry_to_delete = Delayance.query.get(delete_form.delete_id.data)
+        db.session.delete(entry_to_delete)
+        db.session.commit()
+        flash("Delay has been removed from the Database")
+        return redirect(url_for("listing"))
+    return render_template('list.html', title='List', delays=delays, 
+                                Asset=Asset, Department=Department, delete_form=delete_form)
+
+@app.route('/water', methods=['GET', 'POST'])
+def water():
+    form = WaterForm()
+    return render_template('water.html', form = form)

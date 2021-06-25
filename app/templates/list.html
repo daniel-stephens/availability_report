@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table table-hover">
+    <thead>
+        <tr scope = "col">
+            <th> ID </th>
+            <th>Asset </th>
+            <th>Department </th>
+            <th> Time_from </th>
+            <th>Time_to </th>
+            <th>Date </th>
+            <th>Action </th>
+            <th>Action </th>
+                
+        </tr>
+    </thead>
+    <tbody>
+        {% for delay in delays %}
+        <tr class="active-row">
+            <td>{{delay.id}}</td>
+            <td>{{Asset.query.filter_by(id = delay.asset_id).first().name }}</td>
+            <td>{{Department.query.filter_by(id = delay.department_id).first().department}}</td>
+            <td>{{delay.time_from}}</td>
+            <td>{{delay.time_to}}</td>
+            <td>{{delay.date}}</td>
+            <td>{{delay.action}}</td>
+            <td>
+                <form method="post">
+                    {{ delete_form.csrf_token }}
+                    {{ delete_form.delete_id(value=delay.id) }}
+                    {{ delete_form.delete(class="btn btn-danger") }}
+                </form>
+            </td>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

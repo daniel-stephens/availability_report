@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="content-section">
+    <div class="media">
+    </div>
+     <div class = 'content-section'>   
+
+          <form method="POST" action="">
+              {{form.hidden_tag() }}
+              <fieldset class="form-group">
+                <legend class="border-bottom mb-4"><h2> WATER DATA</h2></legend>
+                
+                
+            <div class = 'jimi'>
+                <h4 class = 'water_area'> Jimi Pump Station</h4>
+                <div class="form-group">
+
+                    {{ form.raw_water.label(class="form-control-label") }}
+                    {% if form.raw_water.errors %}
+                        {{ form.raw_water(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.raw_water.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.raw_water(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>  
+            </div>
+            <div class="north_water">
+                <h4 class = 'water_area'> North Water Treatment Plant</h4>
+                  <div class="form-group">
+                      {{ form.biney.label(class="form-control-label") }}
+                      {% if form.biney.errors %}
+                          {{ form.biney(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.biney.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.biney(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+                  <div class="form-group">
+                    {{ form.toytown.label(class="form-control-label") }}
+                    {% if form.toytown.errors %}
+                            {{ form.toytown(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.toytown.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.toytown(class="form-control form-control-lg") }}
+                        {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.monsi_valley.label(class="form-control-label") }}
+                    {% if form.monsi_valley.errors %}
+                        {{ form.monsi_valley(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.monsi_valley.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.monsi_valley(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class = 'anyinam'>
+                <h4 class = 'water_area'> Anyinam Water Treatment Plant</h4>
+                <div class="form-group">
+                    {{ form.bill_hussey.label(class="form-control-label") }}
+                    {% if form.bill_hussey.errors %}
+                        {{ form.bill_hussey(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.bill_hussey.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.bill_hussey(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.sam_jonah.label(class="form-control-label") }}
+                    {% if form.sam_jonah.errors %}
+                        {{ form.sam_jonah(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.sam_jonah.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.sam_jonah(class="form-control form-control-lg") }}
+                    {% endif %}
+
+                  <div class="form-group">
+                      {{ form.old_anyinam.label(class="form-control-label") }}
+                      {% if form.old_anyinam.errors %}
+                          {{ form.old_anyinam(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.old_anyinam.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.old_anyinam(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+
+                </div>
+            </fieldset>
+                                          <br>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+          </form>
+          
+          <div >
+        </div> 
+  </div>
+
+{% endblock %}
