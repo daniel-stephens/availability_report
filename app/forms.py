@@ -2,8 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms_sqlalchemy.fields import QuerySelectField
 from wtforms import StringField, SubmitField, BooleanField, IntegerField, FloatField, HiddenField
 from wtforms.fields.html5 import DateField, TimeField
-from  wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from app.models import Location, Asset, Asset_Type, Department, Delayance
+from  wtforms.validators import DataRequired
+from app.models import Location, Asset, Asset_Type, Department, Delayance, Area, Water, Water_Type
 
 
 def department_query():
@@ -52,6 +52,7 @@ class WaterForm(FlaskForm):
     sam_jonah = FloatField('Sam Jonah ', validators = [DataRequired()])
     bill_hussey = FloatField('Bill Hussey', validators = [DataRequired()])
     old_anyinam = FloatField('Old Anyinam', validators = [DataRequired()])
+    date = DateField('Date',  validators=[DataRequired()])
     submit = SubmitField('Sumbit')
 
 
