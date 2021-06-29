@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table table-hover">
+    <thead>
+        <tr scope = "col">
+            <th> ID </th>
+            <th>Asset </th>
+            <th>Water Type </th>
+            <th> Area </th>
+            <th>Volume </th>
+            <th>Date </th>
+                
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in records %}
+        <tr class="active-row">
+            <td>{{record.id}}</td>
+            <td>{{Asset.query.filter_by(id = record.asset_id).first().name }}</td>
+            <td>{{Water_Type.query.filter_by(id=record.water_id).first().name}}</td>
+            <td>{{Area.query.filter_by(id=record.area_id).first().name}}</td>
+            <td>{{record.volume}}</td>
+            <td>{{record.date}}</td>
+            <td>
+                <form method="post">
+                    {{ delete_form.csrf_token }}
+                    {{ delete_form.delete_id(value=record.id) }}
+                    {{ delete_form.delete(class="btn btn-danger") }}
+                </form>
+            </td>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

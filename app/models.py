@@ -53,6 +53,7 @@ class Delayance (db.Model):
     __tablename__ = 'delayance'
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
     asset_id = db.Column(db.Integer, db.ForeignKey('asset.id'), unique=False, nullable=False)
     department_id = db.Column(db.Integer, db.ForeignKey('department.id'), unique=False, nullable=False)
     time_from = db.Column(db.Time, nullable=False) 
@@ -62,7 +63,7 @@ class Delayance (db.Model):
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     def __repr__(self):
-        return f"Delayance('{self.time_from}', '{self.time_to}', '{self.date}', '{self.action}')"
+        return f"Delayance('{self.name}','{self.time_from}', '{self.time_to}', '{self.date}', '{self.action}')"
 
 
 class Water_Type(db.Model):
@@ -98,3 +99,4 @@ class Water(db.Model):
         return f"Water('{self.volume}', '{self.date}')"
 
 
+ 

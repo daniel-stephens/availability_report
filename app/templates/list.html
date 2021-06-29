@@ -5,13 +5,14 @@
     <thead>
         <tr scope = "col">
             <th> ID </th>
+            <th>Name </th>
             <th>Asset </th>
             <th>Department </th>
             <th> Time_from </th>
             <th>Time_to </th>
             <th>Date </th>
             <th>Action </th>
-            <th>Action </th>
+            
                 
         </tr>
     </thead>
@@ -19,6 +20,7 @@
         {% for delay in delays %}
         <tr class="active-row">
             <td>{{delay.id}}</td>
+            <td>{{delay.name}}</td>
             <td>{{Asset.query.filter_by(id = delay.asset_id).first().name }}</td>
             <td>{{Department.query.filter_by(id = delay.department_id).first().department}}</td>
             <td>{{delay.time_from}}</td>

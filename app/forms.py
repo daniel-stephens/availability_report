@@ -23,6 +23,7 @@ def asset_query():
 
 
 class DelayForm(FlaskForm):
+    name = StringField('DELAY', validators=[DataRequired()])
     asset = QuerySelectField(query_factory = asset_query, allow_blank=False, get_label='name', validators=[DataRequired()])
     department =  QuerySelectField(query_factory = department_query, allow_blank=False, get_label='department', validators=[DataRequired()])
     time_from = TimeField('START TIME', validators=[DataRequired()])
@@ -45,13 +46,13 @@ class DeleteForm(FlaskForm):
 
 
 class WaterForm(FlaskForm):
-    raw_water = FloatField('RAW WATER', validators=[DataRequired()])
-    biney = FloatField('Biney Estate', validators = [DataRequired()])
-    toytown = FloatField('Toy Town', validators = [DataRequired()])
-    monsi_valley = FloatField('Monsi Valley', validators = [DataRequired()])
-    sam_jonah = FloatField('Sam Jonah ', validators = [DataRequired()])
-    bill_hussey = FloatField('Bill Hussey', validators = [DataRequired()])
-    old_anyinam = FloatField('Old Anyinam', validators = [DataRequired()])
+    raw_water = FloatField('RAW WATER')
+    biney = FloatField('Biney Estate')
+    toytown = FloatField('Toy Town')
+    monsi_valley = FloatField('Monsi Valley')
+    sam_jonah = FloatField('Sam Jonah ')
+    bill_hussey = FloatField('Bill Hussey')
+    old_anyinam = FloatField('Old Anyinam')
     date = DateField('Date',  validators=[DataRequired()])
     submit = SubmitField('Sumbit')
 
