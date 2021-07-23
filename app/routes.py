@@ -88,3 +88,6 @@ def waters():
     return render_template('water_list.html', title='Water list', records=records, 
                                 Asset=Asset, delete_form=delete_form,Area =Area, Water_Type=Water_Type)
 
+@app.route('/api/v1/')
+def myendpoint():
+    return 'We are computering now'
